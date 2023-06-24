@@ -111,7 +111,7 @@ cd ../example/
 rm friend.pb.* user.pb.*
 protoc friend.proto --cpp_out=./
 protoc user.proto --cpp_out=./
-
+```
 
 ```shell
 sh autobuild.sh
