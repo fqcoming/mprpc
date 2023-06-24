@@ -58,6 +58,7 @@ g++ -o main main.cc test.pb.cc -lprotobuf   #
 #### 1.3 build zookeeper
 
 ```shell
+sudo apt-get install openjdk-11-jdk  # install jdk
 tar -xzf zookeeper-3.4.10.tar.gz
 cd zookeeper-3.4.10/src/c
 sudo ./configure
@@ -114,6 +115,7 @@ protoc user.proto --cpp_out=./
 ```
 
 ```shell
+cd ..
 sh autobuild.sh
 ```
 
@@ -121,13 +123,39 @@ sh autobuild.sh
 ### 2.run
 
 
+#### 2.1 run zookeeper
 
 
+```shell
+cd zookeeper-3.4.10/conf/
+mv zoo_sample.cfg zoo.cfg
+```
+
+修改 zoo.cfg 配置文件
 
 
+```shell
+cd zookeeper-3.4.10/
+mkdir data  # 用于存放zk中的数据
+cd conf
+sudo vim zoo.cfg
+```
 
+首先，zoo.cfg 中 dataDir=/tmp/zookeeper 表示 zk 中数据存放位置
+默认存放在 /tmp/zookeeper 目录下，/tmp 是临时文件，当主机系统重启之后，/tmp 临时文件就删除了
+启动 zk 后配置的数据也就不存在了，之前配置的数据丢失了，因此可以重新指定一下 zk 中数据存放位置
+可以修改如下行配置
+dataDir=/tmp/zookeeper => dataDir=/home/mprpc/zookeeper-3.4.10/data
+修改之后保存退出
 
+```shell
+cd zookeeper-3.4.10/bin/
+./zkServer.sh start          # must install openjdk 
+ps -ef | grep zookeeper
+sudo netstat -tanp
+```
 
-
+可以查看到如下信息
+> tcp6       0      0 :::2181                 :::*                    LISTEN      28549/java 
 
 
