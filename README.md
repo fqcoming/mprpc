@@ -33,12 +33,10 @@ sudo make install
 
 protobuf
 
-https://github.com/protocolbuffers/protobuf
-Directly manually downloaded version 3.19.4
 
 ```shell
 sudo apt install unzip
-unzip protobuf-3.19.4.zip
+unzip protobuf-3.19.4.zip # directly manually downloaded version 3.19.4
 cd protobuf-3.19.4
 sudo apt-get install autoconf automake libtool curl make
 ./autogen.sh
@@ -65,22 +63,36 @@ sudo ./configure
 sudo make  
 ```
 
-> Make compilation error in the native C API interface of Zookeeper during Linux installation
-> see also https://blog.csdn.net/weixin_43604792/article/details/103879578
+Make compilation error in the native C API interface of Zookeeper during Linux installation
+see also https://blog.csdn.net/weixin_43604792/article/details/103879578
 
 ```shell
 sudo make
 sudo make install
 ```
 
-> error while loading shared libraries: reasons and solutions for errors 
-> There are two reasons:
->　　1.操作系统没有改共享库
->　　2.安装了该共享库，但是执行外部程序调用该共享库的时候，程序按照默认路径（/usr/lib、/lib）找不到该共享库文件
-> 解决方法：
->　　ubuntu 系统的共享库一般安装在 /usr/local/lib 目录下，如果不确定，可以使用 ls  /usr/local/lib 查看里面是否有你需要的库文件
->　　然后打开/etc/ld.so.conf，在文件最后添加/usr/local/lib（或者在命令行输入echo "/usr/local/lib" >> sudo /etc/ld.so.conf）
->　　保存退出，执行ldconfig命令即可。
+Error while loading shared libraries: reasons and solutions for errors.
+The shared library has been installed, but when an external program calls the shared library, 
+the program cannot find the shared library file according to the default path (/usr/lib, /lib).
+The shared libraries of the Ubuntu system are usually installed in the /usr/local/lib directory. 
+If unsure, you can use the following to check if there are any library files you need.
+
+```shell
+ls /usr/local/lib
+```
+
+Then open /etc/ld.so.conf and add /usr/local/lib at the end of the file (or enter the following at the command line). 
+
+```shell
+echo "/usr/local/lib" > sudo/etc/ld.so.conf
+```
+
+Save and exit, execute the ldconfig command.
+
+```shell
+ldconfig
+```
+
 
 
 
