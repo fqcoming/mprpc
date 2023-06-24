@@ -156,6 +156,7 @@ sudo netstat -tanp
 ```
 
 可以查看到如下信息
-tcp6       0      0 :::2181                 :::*                    LISTEN      28549/java 
-
+```
+tcp6    0   0   :::2181   :::*    LISTEN  28549/java 
+```
 
