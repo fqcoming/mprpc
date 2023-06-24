@@ -160,3 +160,68 @@ sudo netstat -tanp
 tcp6    0   0   :::2181   :::*    LISTEN  28549/java 
 ```
 
+
+运行 zk 的客户端
+
+```shell
+cd zookeeper-3.4.10/bin/
+./zkCli.sh
+```
+
+zk 客户端常用命令: ls get create set delete
+
+列出根目录有哪些节点
+```
+ls /      # [zookeeper] 刚开始只有这一个节点 node
+```
+
+查询 zookeeper 节点上的详细信息
+```
+get /zookeeper
+```
+
+会显示如下内容
+```
+                     # 第1行为空表示节点存储的数据为空
+cZxid = 0x0
+ctime = Thu Jan 01 00:00:00 UTC 1970
+mZxid = 0x0
+mtime = Thu Jan 01 00:00:00 UTC 1970
+pZxid = 0x0
+cversion = -1
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 0
+numChildren = 1
+```
+
+```shell
+ls /zookeeper   # 显示 [quota]
+get /zookeeper/quota    # 访问 zk 的每个节点的路径都要从根路径写起
+create /sl 20   # 创建节点
+set /sl 30
+delete /sl
+quit
+```
+
+
+
+
+
+#### 2.2 run mprpc
+
+
+```shell
+
+```
+
+
+
+
+
+
+
+
+
+
