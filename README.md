@@ -1,16 +1,21 @@
-# mprpc
-> boost + muduo + protobuf + zookeeper + rpc
+### mprpc
+
+Mprpc is developed based on Muduo high-performance network library and Protobuf.
 
 
-## 1.编译
+#### 1.build and run
 
-ubuntu22
+Tested on:
+    unbuntu 20.04 and unbuntu 22.04
+
+Install required packages:
+  # ubuntu
+  $ sudo apt install g++ cmake make libboost-dev
 
 
 
+### 1.1 boost
 
-
-# boost
 ```shell
 $ sudo apt-get install libboost-dev
 ```
