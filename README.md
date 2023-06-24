@@ -1,9 +1,9 @@
-### mprpc
+## mprpc
 
 Mprpc is developed based on Muduo high-performance network library and Protobuf.
 
 
-#### 1.build and run
+### 1.build
 
 Tested on:
     unbuntu 20.04 and unbuntu 22.04
@@ -16,7 +16,8 @@ sudo apt-get install gcc g++ make cmake build-essential
 ```
 
 
-boost + muduo
+#### 1.1 build muduo
+
 
 ```shell
 sudo apt-get install libboost-dev
@@ -31,7 +32,7 @@ sudo make install
 
 
 
-protobuf
+#### 1.2 build protobuf
 
 
 ```shell
@@ -54,7 +55,7 @@ g++ -o main main.cc test.pb.cc -lprotobuf   #
 ```
 
 
-ZooKeeper
+#### 1.3 build zookeeper
 
 ```shell
 tar -xzf zookeeper-3.4.10.tar.gz
@@ -94,10 +95,29 @@ ldconfig
 ```
 
 
+#### 1.4 buid mprpc
 
 
+为了防止编译 *.proto 文件的 protobuf 和编译项目的 protobuf 不一致
+首先删除之前历史编译 *.proto 文件产生的结果文件，然后重新编译 *.proto 文件
+接着编译mprpc项目
+
+```shell
+cd mprpc/src
+rm rpcheader.pb.h rpcheader.pb.cc
+protoc rpcheader.proto --cpp_out=./
+cd ../example/
+rm friend.pb.* user.pb.*
+protoc friend.proto --cpp_out=./
+protoc user.proto --cpp_out=./
 
 
+```shell
+sh autobuild.sh
+```
+
+
+### 2.run
 
 
 
