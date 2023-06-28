@@ -214,7 +214,7 @@ quit
 
 
 ```shell
-./bin/provider -i ./bin/test.conf
+./bin/provider -i mprpc.conf
 ```
 
 ./bin/provider: error while loading shared libraries: libzookeeper_mt.so.2: cannot open shared object file: No such file or directory
@@ -224,7 +224,7 @@ sudo ldconfig
 ```
 
 ```shell
-./bin/consumer -i ./bin/test.conf
+./bin/consumer -i mprpc.conf
 ```
 
 

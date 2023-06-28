@@ -1,3 +1,3 @@
-bin/consumer
-bin/provider
+bin/*
+lib/*
 build/*
