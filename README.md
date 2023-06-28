@@ -128,7 +128,7 @@ sh autobuild.sh
 
 ```shell
 cd zookeeper-3.4.10/conf/
-mv zoo_sample.cfg zoo.cfg
+cp zoo_sample.cfg zoo.cfg
 ```
 
 修改 zoo.cfg 配置文件
