@@ -1,3 +1,6 @@
 bin/*
 lib/*
 build/*
+log/*
+!bin/readme.txt
+!lib/readme.txt
