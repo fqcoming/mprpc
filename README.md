@@ -72,6 +72,7 @@ see also https://blog.csdn.net/weixin_43604792/article/details/103879578
 sudo vim Makefile # 将548行改为 AM_CFLAGS = -Wall 即可重新编译
 sudo make
 sudo make install
+sudo ldconfig
 ```
 
 Error while loading shared libraries: reasons and solutions for errors.
@@ -213,14 +214,18 @@ quit
 
 
 ```shell
-
+./bin/provider -i ./bin/test.conf
 ```
 
+./bin/provider: error while loading shared libraries: libzookeeper_mt.so.2: cannot open shared object file: No such file or directory
 
+```shell
+sudo ldconfig
+```
 
-
-
-
+```shell
+./bin/consumer -i ./bin/test.conf
+```
 
 
 
