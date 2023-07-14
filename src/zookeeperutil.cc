@@ -43,7 +43,7 @@ void ZkClient::Start()
 	网络I/O线程  pthread_create  poll
 	watcher回调线程 pthread_create
 	*/
-	// 30000 session会话的超时时间
+	// 30000ms session会话的超时时间
     m_zhandle = zookeeper_init(connstr.c_str(), global_watcher, 30000, nullptr, nullptr, 0);
     if (nullptr == m_zhandle) 
     {
